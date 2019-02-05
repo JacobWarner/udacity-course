@@ -10,29 +10,31 @@ import 'package:flutter/material.dart';
 // More details at http://dart-lang.github.io/linter/lints/avoid_relative_lib_imports.html
 import 'package:task_02_category_widget/category.dart';
 
-// TODO: Pass this information into your custom [Category] widget
-const _categoryName = 'Cake';
-const _categoryIcon = Icons.cake;
-const _categoryColor = Colors.green;
+const _categoryName = 'Android';
+const _categoryIcon = Icons.adb;
+const _categoryColor = Colors.lime;
 
 /// The function that is called when main.dart is run.
 void main() {
-  runApp(UnitConverterApp());
+  runApp(CategoryWidgetApp());
 }
 
 /// This widget is the root of our application.
 /// Currently, we just show one widget in our app.
-class UnitConverterApp extends StatelessWidget {
+class CategoryWidgetApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Unit Converter',
+      title: 'Category Widget App',
       home: Scaffold(
-        backgroundColor: Colors.green[100],
+        backgroundColor: Colors.white,
         body: Center(
-          // TODO: Determine what properties you'll need to pass into the widget
-          child: Category(),
+          child: Category(
+            iconLocation: _categoryIcon,
+            color: _categoryColor,
+            name: _categoryName,
+          ),
         ),
       ),
     );
