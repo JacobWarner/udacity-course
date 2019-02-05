@@ -1,12 +1,10 @@
 // Copyright 2018 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import 'package:flutter/material.dart';
+import 'category.dart';
 
-// TODO: Check if we need to import anything
-
-// TODO: Define any constants
+final _backgroundColor = Colors.green[100];
 
 /// Category Route (screen).
 ///
@@ -40,17 +38,40 @@ class CategoryRoute extends StatelessWidget {
     Colors.red,
   ];
 
+  static const _categoryIcons = <IconData>[
+    Icons.cake,
+    Icons.cake,
+    Icons.cake,
+    Icons.cake,
+    Icons.cake,
+    Icons.cake,
+    Icons.cake,
+    Icons.cake,
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // TODO: Create a list of the eight Categories, using the names and colors
-    // from above. Use a placeholder icon, such as `Icons.cake` for each
-    // Category. We'll add custom icons later.
+    final listView = Container(
+      color: _backgroundColor,
+      padding: EdgeInsets.all(8.0),
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) => Category(iconLocation: _categoryIcons[index], color: _baseColors[index], name: _categoryNames[index]),
+        itemCount: _categoryNames.length,
+      ),
+    );
 
-    // TODO: Create a list view of the Categories
-    final listView = Container();
-
-    // TODO: Create an App Bar
-    final appBar = AppBar();
+    final appBar = AppBar(
+      title: Text(
+        'Unit Converter',
+        style: TextStyle(
+          fontSize: 30.0,
+          color: Colors.black,
+        ),
+      ),
+      elevation: 0.0,
+      backgroundColor: _backgroundColor,
+      centerTitle: true,
+    );
 
     return Scaffold(
       appBar: appBar,
